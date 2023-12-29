@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"os"
 )
 
 type WeatherData struct {
@@ -41,7 +42,7 @@ func getWeather(apiKey, city string) (WeatherData, error) {
 }
 
 func main() {
-	apiKey := "99b1e77c0771ded0db3ab13394f4faf0"
+	apiKey := os.Getenv("OPEN_WEATHER_API_KEY")
 	city := "New York"
 
 	weatherData, err := getWeather(apiKey, city)
